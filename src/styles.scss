@@ -1,1 +1,477 @@
 /* You can add global styles to this file, and also import other style files */
+// @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@import "_variables";
+
+//Font faces 
+@font-face {
+    font-family: defaultRegularFont;
+    src: url(assets/fonts/Montserrat/Montserrat-Regular.woff);
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: defaultMediumFont;
+    src: url(assets/fonts/Montserrat/Montserrat-Medium.woff);
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: defaultBoldFont;
+    src: url(assets/fonts/Montserrat/Montserrat-Bold.woff);
+}
+
+//This is for global declaration of styles
+html,
+body {
+    font-family: defaultRegularFont !important;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+    background: $bodyBgColor;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+
+.text-align-center {
+    text-align: center;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.max-content-width {
+    width: max-content !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.no-cursor-pointer {
+    cursor: default !important;
+}
+
+.disabled-pointer {
+    cursor: not-allowed !important;
+}
+
+.anchor-span {
+    color: $linkColor !important;
+    text-decoration: none;
+    background-color: transparent !important;
+}
+
+.anchor-span:hover {
+    color: $linkColorHover !important;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.alert-validation-error {
+    color: $redcolor;
+    font-size: $f7;
+}
+
+.safety-primary-bg {
+    background-color: $primaryColor;
+    color: $whiteColor !important;
+}
+
+.safety-primary-color {
+    color: $primaryColor;
+}
+
+.list-name-link {
+    font-family: defaultMediumFont !important;
+    color: $linkColor;
+}
+
+.list-name-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.action-card-body {
+    padding: 10px !important;
+}
+
+.action-drop-menu {
+    font-size: $f7;
+}
+
+.title-group {
+    text-align: left;
+}
+
+.dropdown-item:active {
+    background-color: $primaryColor;
+    cursor: pointer;
+}
+
+// .dropdown-item:hover {
+//     background-color: $drodownItemActiveGray;
+//     cursor: pointer;
+// }
+
+.dropdown-item:hover {
+    background-color: #007bff;
+    cursor: pointer;
+}
+
+.list-card-item {
+    border: 1px solid #e9ecef8f;
+    box-shadow: 0 0 0 1px #e9ecef8f;
+    border-radius: 4px;
+    color: $black_87;
+    background: $whiteColor;
+    margin: $row_list_card_item-m;
+}
+
+.col-head-row {
+    font-family: defaultMediumFont !important;
+    font-size: $f7;
+    line-height: $lh5;
+    color: $black_38;
+}
+
+.col-data-row {
+    text-align: left !important;
+    font-size: $f7;
+    line-height: $lh5;
+    padding: $row_list_card_item-p;
+}
+
+.truncate-overflow-text {
+    padding-right: 1.5%;
+    margin-right: 0.5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#custom-search-input input[type=text]::placeholder {
+    font-size: $f6;
+    color: $black_38;
+}
+
+#custom-search-input input[type=text] {
+    border: none;
+    outline: none;
+    text-decoration: none;
+    width: 100%;
+}
+
+#custom-search-input .fa-search {
+    font-size: $f7;
+}
+
+#custom-search-input .s-search-box {
+    border: none;
+    box-shadow: none;
+}
+
+#custom-search-input button {
+    margin: 0px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 2px 2px 0 2px;
+}
+
+#custom-search-input button:hover {
+    border: 0;
+    box-shadow: none;
+}
+
+.input-group-btn {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.form-control {
+    border-radius: 0px !important;
+    font-size: $f7;
+    height: calc(1.5em + .75rem + 7px) !important;
+}
+
+.form-section-lables {
+    font-size: $f5;
+    font-style: normal;
+    line-height: $lh3;
+    color: $primaryColor;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 0px auto 5px;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 19px;
+    z-index: 1;
+    top: 13px;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+
+.avatar-upload .avatar-edit .custom-label:after {
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    top: 8px;
+    right: 0;
+    left: 2px;
+    width: 18px;
+}
+
+.avatar-upload .avatar-preview {
+    width: 105px;
+    height: 105px;
+    position: relative;
+    border-radius: 100%;
+    overflow: visible;
+    border: 2px solid #fff;
+}
+
+.avatar-upload .avatar-preview>img {
+    display: block !important;
+    height: inherit !important;
+    width: inherit !important;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#imagePreview:hover {
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+#imagePreview:after {
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.safetyLogo {
+    width: $login-safety-logo-w;
+    height: $login-safety-logo-h;
+    margin-bottom: 20px;
+}
+
+.loginbox .card {
+    border: none;
+    border-radius: none;
+}
+
+.typoGraphy {
+    display: inline !important;
+}
+
+.card-head-title {
+    font-family: defaultBoldFont !important;
+    font-size: $f3;
+    line-height: 32px;
+    color: $whiteColor;
+}
+
+.login-module-header {
+    text-align: center;
+    padding: 45px 0px !important;
+    margin-bottom: 0;
+    background-color: $primaryDarkColor;
+    border-bottom: $login-header-border-bottom;
+    border-radius: $login-header-border-radius;
+}
+
+.login-module-header .box-header-sub-text {
+    font-size: $f6;
+    line-height: $lh3;
+    margin-top: 5px;
+}
+
+.modal-xll .modal-dialog {
+    max-width: 1113px !important;
+}
+
+#safety-watermark {
+    display: block;
+    font-size: $f8;
+    line-height: $lh7;
+    text-align: center;
+    color: $black_87;
+    margin-top: 22px;
+}
+
+.no-data-found {
+    margin: 0px 5px;
+}
+
+.dropdown-link {
+    color: $black_38;
+    cursor: pointer;
+}
+
+.disabled {
+    background: $bodyBgColor !important;
+    border: 1px solid $bglightGray !important;
+    pointer-events: none !important;
+}
+
+.disabled-file-selection {
+    background: $bodyBgColor !important;
+    pointer-events: none !important;
+}
+
+.disabled-action {
+    pointer-events: none !important;
+}
+
+.ck-editor__editable {
+    min-height: 200px;
+}
+
+.ck-rounded-corners .ck.ck-balloon-panel,
+.ck.ck-balloon-panel.ck-rounded-corners {
+    z-index: 10055 !important;
+}
+
+
+.ck.ck-editor__editable_inline[dir=ltr] {
+    font-size: $f7;
+    line-height: $lh8;
+}
+
+.ck-editor__editable {
+    font-size: $f7 !important;
+    line-height: $lh4 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.custom-border {
+    .ck.ck-editor__editable_inline {
+        border-top: none;
+        border-color: $bglightGray;
+    }
+}
+
+.close {
+    font-size: 30px !important;
+    outline: none !important;
+    color: $black_5;
+}
+
+
+@media (min-width: 968px) {
+
+    .card-container {
+        height: 300px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+
+    .card-container {
+        height: 300px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+}
+
+
+@media (min-width: 1367px) {
+
+
+    .card-container {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+}
+
+@media (min-width: 1900px) {
+
+
+    .card-container {
+        height: 400px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+}
+
+// Changes specific to Firefox browser
+
+@supports (-moz-appearance:none) {
+
+    input[type=text] {
+        font-size: $f7;
+        letter-spacing: -0.64px;
+    }
+
+    .form-control::placeholder {
+        font-size: $f7;
+    }
+
+    .btn {
+        letter-spacing: -0.056em;
+        font-size: $f8;
+    }
+
+    .alert {
+        font-size: $f7;
+        letter-spacing: -0.35px;
+    }
+
+    .close {
+        font-size: $f5;
+    }
+
+    .forgot-pin {
+        font-size: $f8;
+    }
+
+    .card-text {
+        font-size: $f7;
+        color: $black_5;
+        letter-spacing: -0.225px;
+    }
+
+}

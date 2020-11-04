@@ -1,0 +1,88 @@
+//global variables for SCI Project Theme
+
+$primaryColor:#3c4858;
+$primaryDarkColor: #21395E;
+
+$bodyBgColor : #FAFAFA;
+$bgGrayColor :#999999;
+$bglightGray: #C0C8D4;
+$lineBorderColor : #E0E0E0;
+$drodownItemActiveGray: #E0E0E0;
+$btnGreenColor: #4CAF50;
+$btnPrimaryColor: #2D9CDB;
+
+
+$linkColor: #1976D2;
+$linkColorHover:#0056b3;
+$primaryFont: 'Montserrat';
+$whiteColor:#FFFFFF;
+$redcolor: #EB5757;
+$lightOrange:#F2994A;
+$greencolor: #219653;
+$alertMajorBgColor:rgba(235, 87, 87, 0.2);
+$alertMinorBgColor:rgba(255, 193, 7, 0.2);
+
+//black-color-codes
+$black_5: rgba(0, 0, 0, 0.5);
+$black_38: rgba(0, 0, 0, 0.38);
+$black_87: rgba(0, 0, 0, 0.87);
+
+//font-sizes
+// $f1 :26px; $f2 :24px; $f3 :22px; $f4 :20px; $f5 :18px; $f6 :16px; $f7 :14px;$f8 :12px;
+$f1 :1.625rem;
+$f2 :1.5rem;
+$f3 :1.375rem;
+$f4 :1.25rem;
+$f5 :1.125rem;
+$f6 :1rem;
+$f7 :0.875rem;
+$f8 :0.75rem;
+
+// $f1 :1.625rem; $f2 :1.5rem; $f3 :1.375rem; $f4 :1.25rem; $f5 :1.125rem; $f6 :1rem; $f7 :0.875rem;$f8 :0.75rem;
+
+//line-height
+$lh1: 1.625rem;
+$lh2 :1.5rem;
+$lh3: 1.375rem;
+$lh4:1.25rem;
+$lh5: 1.125rem;
+$lh6: 1rem;
+$lh7: 0.875rem;
+$lh8: 0.75rem;
+
+
+//common box shadows for use cases 
+
+$dropdown-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2),
+0px 3px 14px rgba(0, 0, 0, 0.12),
+0px 8px 10px rgba(0, 0, 0, 0.14);
+$dropdown-box-border-radius: 4px;
+$home-card-box-shadow : 0px 2px 4px rgba(0, 0, 0, 0.14),
+0px 3px 4px rgba(0, 0, 0, 0.12),
+0px 1px 5px rgba(0, 0, 0, 0.2);
+
+$box_shadow_4_25: 0px 0px 4px rgba(0, 0, 0, 0.25);
+$box_shadow_2_4_25: 0px 2px 4px rgba(0, 0, 0, 0.25);
+$signIn_btn_box_shadow:0px 2px 10px rgba(44, 73, 113, 0.24);
+
+//Header
+$header-brand-mh : 100px; //min-height
+$profile-dropdown-top: 75%; //margin-top
+
+$modal-width:55% !important;
+$modal-left:22% !important;
+$modal-top:12% !important;
+
+//List company or user images
+
+$listImage : 45px; //height & width 
+$row_list_card_item-m : 10px 5px; //margin
+$row_list_card_item-p : 10px 5px; //margin
+
+$col-cell-head-p :0px 12px; // for colum head padding
+$col-cell-data-p :12px 12px; // for colum head padding common for all cells
+
+$col-pl-5 : 10px 15px !important; // as we are displaying image so padding top-bottom reduced by 2px
+$col-pl-6 : 12px 20px !important; // custamized left and right padding for better alignment and overriding commaon cell l & r padding 
+$col-pl-7 : 12px 25px !important;
+$col-pl-8 : 12px 15px !important;
