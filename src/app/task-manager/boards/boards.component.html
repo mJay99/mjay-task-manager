@@ -1,0 +1,185 @@
+<div class="container-fluid mt-4">
+    <div class="loading" *ngIf="loading">
+        <div class="spinner-border safety-primary-color"></div>
+    </div>
+    <div class="home-cards ml-4 mr-4 pb-1">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card card-home" (click)="navigateTo('company')">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Board 1</h5>
+                        </div>
+                        <hr>
+                        <div class="secondary-label truncate-overflow-text" title="">
+                            No of Tasks : 8
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Completed : 3
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Pending : 3
+                            </span>
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Created at: 3/11/2020
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Due on: 4/11/2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-home" (click)="navigateTo('user')">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Board 2</h5>
+                        </div>
+                        <hr>
+                        <div class="secondary-label truncate-overflow-text" title="">
+                            No of Tasks : 8
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Completed : 3
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Pending : 3
+                            </span>
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Created at: 3/11/2020
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Due on: 4/11/2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-home" (click)="navigateTo('equipment')">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Board 3</h5>
+                        </div>
+                        <hr>
+                        <div class="secondary-label truncate-overflow-text" title="">
+                            No of Tasks : 8
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Completed : 3
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Pending : 3
+                            </span>
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Created at: 3/11/2020
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Due on: 4/11/2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-4">
+                <div class="card card-home" (click)="navigateTo('safety-docs')">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Board 4</h5>
+                        </div>
+                        <hr>
+                        <div class="secondary-label truncate-overflow-text" title="">
+                            No of Tasks : 8
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Completed : 3
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Pending : 3
+                            </span>
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Created at: 3/11/2020
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Due on: 4/11/2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-home" (click)="navigateTo('geofences')">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Board 5</h5>
+                        </div>
+                        <hr>
+                        <div class="secondary-label truncate-overflow-text" title="">
+                            No of Tasks : 8
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Completed : 3
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Pending : 3
+                            </span>
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Created at: 3/11/2020
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Due on: 4/11/2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-home last-card" (click)="navigateTo('reports')">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Board 6</h5>
+                        </div>
+                        <hr>
+                        <div class="secondary-label truncate-overflow-text" title="">
+                            No of Tasks : 8
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Completed : 3
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Pending : 3
+                            </span>
+                        </div>
+                        <div class="d-flex">
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Created at: 3/11/2020
+                            </span>
+                            <span class="secondary-label truncate-overflow-text" title="">
+                                Due on: 4/11/2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

@@ -284,12 +284,6 @@ input:-webkit-autofill:active {
     opacity: 0.2;
 }
 
-.safetyLogo {
-    width: $login-safety-logo-w;
-    height: $login-safety-logo-h;
-    margin-bottom: 20px;
-}
-
 .loginbox .card {
     border: none;
     border-radius: none;
@@ -304,21 +298,6 @@ input:-webkit-autofill:active {
     font-size: $f3;
     line-height: 32px;
     color: $whiteColor;
-}
-
-.login-module-header {
-    text-align: center;
-    padding: 45px 0px !important;
-    margin-bottom: 0;
-    background-color: $primaryDarkColor;
-    border-bottom: $login-header-border-bottom;
-    border-radius: $login-header-border-radius;
-}
-
-.login-module-header .box-header-sub-text {
-    font-size: $f6;
-    line-height: $lh3;
-    margin-top: 5px;
 }
 
 .modal-xll .modal-dialog {
