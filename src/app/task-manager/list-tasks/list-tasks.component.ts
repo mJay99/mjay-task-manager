@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Task } from 'src/app/core/data-models/task.model';
 import { User } from 'src/app/core/data-models/user.model';
-import { UserService } from 'src/app/core/services';
+import { AlertService, UserService } from 'src/app/core/services';
 import { TaskService } from 'src/app/core/services/task/task.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { LoaderService } from 'src/app/core/services/loader/loader.service';
 
 @Component({
   selector: 'app-list-tasks',
@@ -26,7 +27,9 @@ export class ListTasksComponent implements OnInit {
   public active_user_role: string;
   constructor(private taskService: TaskService,
     private modalService: NgbModal,
-    private userService: UserService) { }
+    private userService: UserService,
+    private alertService : AlertService,
+    private loaderService : LoaderService,) { }
 
   ngOnInit() {
     var self = this;
@@ -55,7 +58,7 @@ export class ListTasksComponent implements OnInit {
     var self = this;
     self.isAdd = false;
     self.isEdit = false;
-    // self.loaderService.startLoader();
+    self.loaderService.startLoader();
     self.taskService.getAllTasksList().subscribe((response: any) => {
       console.log(response);
       self.tasksList = response.tasks;
@@ -68,16 +71,16 @@ export class ListTasksComponent implements OnInit {
               }
             });
             console.log(this.assignedUser);
-
+            self.loaderService.stopLoader();
           })
         }
       }, 100);
 
 
-      // self.loaderService.stopLoader();
     }, (error) => {
       console.log(error);
-      // self.loaderService.stopLoader();
+      self.alertService.error(error.Message || JSON.stringify(error));
+      self.loaderService.stopLoader();
     })
   }
 
@@ -88,16 +91,18 @@ export class ListTasksComponent implements OnInit {
       }
     });
   }
+
   getAllUsers() {
     var self = this;
-    // self.loaderService.startLoader();
+    self.loaderService.startLoader();
     self.userService.getAllUsersList().subscribe((response: any) => {
       console.log(response);
       self.usersList = response.users;
-      // self.loaderService.stopLoader();
+      self.loaderService.stopLoader();
     }, (error) => {
       console.log(error);
-      // self.loaderService.stopLoader();
+      self.alertService.error(error.Message || JSON.stringify(error));
+      self.loaderService.stopLoader();
     })
   }
 
@@ -121,15 +126,16 @@ export class ListTasksComponent implements OnInit {
     var self = this;
     var data = new FormData();
     data.append("taskid", task.id)
+    self.loaderService.startLoader();
     self.taskService.deleteTask(data).subscribe((response: any) => {
       console.log(response);
+      self.alertService.success('Task has been deleted successfully');
       self.getAllTasks();
-      // self.users = response.users;
-      // self.loaderService.stopLoader();
+      self.loaderService.stopLoader();
     }, (error) => {
       console.log(error);
-      console.log(error);
-      // self.loaderService.stopLoader();
+      self.alertService.error(error.Message || JSON.stringify(error));
+      self.loaderService.stopLoader();
     })
   }
 

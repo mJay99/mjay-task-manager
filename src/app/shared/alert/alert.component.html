@@ -1,0 +1,7 @@
+<div class="myAlert-bottom" *ngIf="alert">
+  <div class=" alert alert-dismissible text-center fade show"
+    [ngClass]="{'alert-danger': alert.type == 'danger', 'alert-success': alert.type == 'success'}">
+    {{alert.text}}
+    <button type="button" class="close" (click)="closeAlert()" data-dismiss="alert">&times;</button>
+  </div>
+</div>

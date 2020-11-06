@@ -4,16 +4,16 @@ import { LoaderService } from 'src/app/core/services/loader/loader.service';
 import { Task } from 'src/app/core/data-models/task.model';
 import { HttpClient } from '@angular/common/http';
 import { TaskService } from 'src/app/core/services/task/task.service';
-import { UserService } from 'src/app/core/services';
-import { CustomDateAdapter } from 'src/app/core/services/dateformat/custom-date-formater';
-import { CustomDateParserFormatter } from 'src/app/core/services/dateformat/custom-date-parser';
+import { AlertService, UserService } from 'src/app/core/services';
+// import { CustomDateAdapter } from 'src/app/core/services/dateformat/custom-date-formater';
+// import { CustomDateParserFormatter } from 'src/app/core/services/dateformat/custom-date-parser';
 
 @Component({
   selector: 'app-create-update-task',
   templateUrl: './create-update-task.component.html',
   styleUrls: ['./create-update-task.component.scss'],
-  providers: [{provide: NgbDateAdapter, useClass: CustomDateAdapter},
-    {provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter}]
+  // providers: [{provide: NgbDateAdapter, useClass: CustomDateAdapter},
+  //   {provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter}]
 })
 export class CreateUpdateTaskComponent implements OnInit {
   public task: Task = new Task();
@@ -22,7 +22,9 @@ export class CreateUpdateTaskComponent implements OnInit {
 
   constructor(private modalService: NgbModal, 
     private taskService : TaskService,
-    private userService : UserService
+    private userService : UserService,
+    private alertService : AlertService,
+    private loaderService : LoaderService,
   ) { }
 
   @Input() taskToEdit: any;
@@ -47,14 +49,15 @@ export class CreateUpdateTaskComponent implements OnInit {
 
   getAllUsers(){
     var self = this;
-    // self.loaderService.startLoader();
+    self.loaderService.startLoader();
     self.userService.getAllUsersList().subscribe((response: any) => {
       console.log(response);
       self.users = response.users;
-      // self.loaderService.stopLoader();
+      self.loaderService.stopLoader();
     }, (error) => {
       console.log(error);
-      // self.loaderService.stopLoader();
+      self.alertService.error(error.Message || JSON.stringify(error));
+      self.loaderService.stopLoader();
     })
   }
   onScrollToEnd() {
@@ -88,23 +91,24 @@ saveTask(){
   var data = new FormData();
   let  task = {...self.task}
   task.due_date = task.due_date + " 12:12:12";
-  let keys = Object.keys(task)
+  let keys = Object.keys(task);
 
   keys.forEach((key:string) => {
     if(key != "id"){
       data.append(key,task[key])
     }
    });
+   self.loaderService.startLoader();
   self.taskService.createNewTask(data).subscribe((response: any) => {
     console.log(response);
+    self.alertService.success('Task has been created successfully');
+    self.loaderService.stopLoader();
     self.relaodTasks.emit();
     self.close.emit()
-    // self.users = response.users;
-    // self.loaderService.stopLoader();
   }, (error) => {
     console.log(error);
-    console.log(error);
-    // self.loaderService.stopLoader();
+    self.alertService.error(error.Message || JSON.stringify(error));
+    self.loaderService.stopLoader();
   })
 }
 updateTask(task:Task){
@@ -121,16 +125,18 @@ updateTask(task:Task){
     }
       
    });
+   self.loaderService.startLoader();
   self.taskService.updateTask(data).subscribe((response: any) => {
     console.log(response);
+    self.alertService.success('Task has been updated successfully');
     self.relaodTasks.emit();
     self.close.emit()
+    self.loaderService.stopLoader();
     // self.users = response.users;
-    // self.loaderService.stopLoader();
   }, (error) => {
     console.log(error);
-    console.log(error);
-    // self.loaderService.stopLoader();
+    self.alertService.error(error.Message || JSON.stringify(error));
+    self.loaderService.stopLoader();
   })
 }
 
