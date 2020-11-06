@@ -16,9 +16,9 @@
       <select class="form-control" name="task_priority" [(ngModel)]="task.priority" #task_priority="ngModel"
         placeholder="Prioirity">
         <option value="">Select Priority</option>
-        <option [value]="1">High</option>
+        <option [value]="3">High</option>
         <option [value]="2">Medium</option>
-        <option [value]="3">Low</option>
+        <option [value]="1">Low</option>
       </select>
     </div>
     <div class="col-2">
@@ -43,5 +43,6 @@
       <div class="action-btn-class">
         <button type="button" (click)="cancel()" class="btn btn-outline-secondary">Cancel</button>
       </div>
+    </div>
     </div>
 </form>

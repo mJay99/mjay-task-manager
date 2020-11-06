@@ -49,64 +49,77 @@
             </form>
         </div>
     </div>
-
-    <div  class="mt-2 mb-2 d-flex col-head-row">
-        <div class="col-1 truncate-overflow-text col-cell-head-p">
-            <span class="name" title="Task"></span>
-        </div>
-        <div class="col-5 truncate-overflow-text col-cell-head-p">
-            <span class="name" title="Task">Task</span>
-        </div>
-        <div class="col-2 truncate-overflow-text col-cell-head-p">
-            <span class="name" title="Due on">Due on </span>
-        </div>
-        <div class="col-1 truncate-overflow-text col-cell-head-p">
-            <span class="name" title="Priority">Priority</span>
-        </div>
-        <div class="col-1 truncate-overflow-text col-cell-head-p">
-            <span class="name" title="Asssigned to">Asssigned to</span>
-        </div>
-        <div class="col-2 truncate-overflow-text col-cell-head-p">
-            <span class="d-flex justify-content-end pr-2" title="Modified At">Action</span>
-        </div>
-    </div>
-    <div class="mb-2 list-card-items">
-        <div *ngFor="let task of tasksList | searchByAll: {message: searchText, due_date:searchText,  priority: searchText}; let i=index" [hidden] ="hideByIndex===i"  class="list-card-item">
-            <div class="row col-data-row align-items-center " >
-                <div class="col-1  truncate-overflow-text">
-                    <i class="cursor-pointer pl-2 pr-2 fa fa-bars"></i>
-                    <label class="form-check-label pl-2">
-                        <input type="checkbox"  name="task{{i}}" id="task{{i}}"
-                           [checked]="false">
-                      </label>
-                </div>
-                <div class="col-5  truncate-overflow-text">
-                    <span class="name" title="{{task.message}}">{{task.message}}</span>
-                </div>
-                <div class="col-2 truncate-overflow-text">
-                    <span class="name" title="{{task.due_date}}">{{task.due_date}}</span>
-                </div>
-                <div class="col-1 truncate-overflow-text">
-                    <span class="badge badge-pill" [ngClass]="{'badge-warning': task.priority === '2','badge-info': task.priority === '1','badge-danger': task.priority === '3'}" 
-                    title="{{task.priority |taskPriority}}">{{task.priority |taskPriority}}</span>
-                </div>
-                <div class="col-1 truncate-overflow-text" >
-                    <ng-container *ngIf="assignedUser">
-                        <div class="cursor-pointer d-flex flex-column justify-content-center ml-2">
-                            <img class="rounded-circle list-avatar" title="{{assignedUser[task.assigned_to].name}}" [src]="assignedUser[task.assigned_to].picture">
-                            <!-- <span class="pt-2" title="{{assignedUser[task.assigned_to].name}}">{{assignedUser[task.assigned_to].name}}</span> -->
-                        </div>
-                    </ng-container>
-                </div>
-                <div class="col-2 d-flex truncate-overflow-text">
-                    <span class="cursor-pointer d-flex flex-fill justify-content-end" title="Edit task" (click)="editTask(task,i)">
-                    <i class="fa-2x fa fa-pencil pencil-icon-color" aria-hidden="true"></i>
-                    </span>
-                    <span class="cursor-pointer d-flex ml-3 pr-4 justify-content-end" title="Delete task" (click)="deleteTask(task)">
-                        <i class="fa-2x fa fa-trash trash-icon-color" aria-hidden="true"></i>
-                    </span>
-                </div>
-          
+   
+    <ng-container *ngIf="tasksList && tasksList.length > 0" >
+        <div  class="mt-2 mb-2 d-flex col-head-row">
+            <div class="col-1 truncate-overflow-text col-cell-head-p">
+                <span class="name" title="Task"></span>
+            </div>
+            <div class="col-5 truncate-overflow-text col-cell-head-p">
+                <span class="name" title="Task">Task</span>
+            </div>
+            <div class="col-2 truncate-overflow-text col-cell-head-p">
+                <span class="name" title="Due on">Due on </span>
+            </div>
+            <div class="col-1 truncate-overflow-text col-cell-head-p">
+                <span class="name" title="Priority">Priority</span>
+            </div>
+            <div class="col-1 truncate-overflow-text col-cell-head-p">
+                <span class="name" title="Asssigned to">Asssigned to</span>
+            </div>
+            <div class="col-2 truncate-overflow-text col-cell-head-p">
+                <span class="d-flex justify-content-end pr-2" title="Modified At">Action</span>
             </div>
         </div>
-</div>
+    <div class="mb-2 list-card-items" #todoList="cdkDropList" cdkDropList   [cdkDropListData]="tasksList" (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let task of tasksList | searchByAll:{message: searchText, due_date:searchText,  priority: searchText}; let i=index"
+            [hidden] ="hideByIndex===i"  class="list-card-item" [cdkDragData]="task" cdkDrag>
+            <div class="example-custom-placeholder"></div>
+                <div class="row col-data-row align-items-center " >
+                    <div class="col-1  truncate-overflow-text">
+                        <i class="cursor-move pl-2 pr-2 fa fa-bars" cdkDragHandle title="Drag"></i>
+                        <label class="form-check-label pl-2">
+                            <input type="checkbox"  name="task{{i}}" id="task{{i}}"
+                               [checked]="false">
+                          </label>
+                    </div>
+                    <div class="col-5  truncate-overflow-text">
+                        <span class="name" title="{{task.message}}">{{task.message}}</span>
+                    </div>
+                    <div class="col-2 truncate-overflow-text">
+                        <span class="name" title="{{task.due_date}}">{{task.due_date}}</span>
+                    </div>
+                    <div class="col-1 truncate-overflow-text">
+                        <span class="badge badge-pill" [ngClass]="{'badge-warning': task.priority === '2','badge-info': task.priority === '1','badge-danger': task.priority === '3'}" 
+                        title="{{task.priority |taskPriority}}">{{task.priority |taskPriority}}</span>
+                    </div>
+                    <div class="col-1 truncate-overflow-text" >
+                        <ng-container *ngIf="assignedUser">
+                            <div class="cursor-pointer d-flex flex-column justify-content-center ml-2">
+                                <img class="rounded-circle list-avatar" title="{{assignedUser[task.assigned_to].name}}" [src]="assignedUser[task.assigned_to].picture">
+                                <!-- <span class="pt-2" title="{{assignedUser[task.assigned_to].name}}">{{assignedUser[task.assigned_to].name}}</span> -->
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="col-2 d-flex truncate-overflow-text">
+                        <span class="cursor-pointer d-flex flex-fill justify-content-end" title="Edit task" (click)="editTask(task,i)">
+                        <i class="fa-2x fa fa-pencil pencil-icon-color" aria-hidden="true"></i>
+                        </span>
+                        <span class="cursor-pointer d-flex ml-3 pr-4 justify-content-end" title="Delete task" (click)="deleteTask(task)">
+                            <i class="fa-2x fa fa-trash trash-icon-color" aria-hidden="true"></i>
+                        </span>
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div *ngIf="!tasksList || tasksList.length === 0" class="mb-2 mt-4 pt-4  d-flex flex-column align-items-center justify-content-center">
+        <!-- No Task to complete ! -->
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+        <div class="pt-1">
+            <span class="no-tasks-label">Hooray! All tasks are finished</span>
+        </div>
+    </div>
+    <div>
+    </div>

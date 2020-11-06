@@ -4,7 +4,7 @@ import { Task } from 'src/app/core/data-models/task.model';
 import { User } from 'src/app/core/data-models/user.model';
 import { UserService } from 'src/app/core/services';
 import { TaskService } from 'src/app/core/services/task/task.service';
-
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list-tasks',
@@ -39,6 +39,18 @@ export class ListTasksComponent implements OnInit {
     self.isAdd = !self.isAdd;
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    console.log('Previous: ');
+    // console.log(event.previousContainer.data);
+    console.log('Current: ');
+    console.log(event.container.data);
+    const prevIndex = this.tasksList.findIndex((d) => d === event.item.data);
+    // if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data,prevIndex, event.currentIndex);
+      this.tasksList = [...this.tasksList];
+      // event.container.data.splice(event.previousIndex, 1);
+    // }
+    }
   getAllTasks() {
     var self = this;
     self.isAdd = false;

@@ -57,7 +57,9 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
-
+.cursor-move {
+    cursor: move;
+}
 .no-cursor-pointer {
     cursor: default !important;
 }
