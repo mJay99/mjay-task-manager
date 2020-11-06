@@ -1,0 +1,154 @@
+@import "_variables";
+
+.list-card {
+    overflow-y: hidden !important;
+    overflow-x: visible;
+    min-height: 80vh;
+
+    // min-width: 760px;
+}
+
+.action-card {
+    margin: 15px 5px 0px 5px;
+    overflow: visible;
+    background: $whiteColor;
+    border: 1px solid #e9ecef8f;
+    box-shadow: 0 0 0 1px #e9ecef8f;
+    border-radius: 4px;
+}
+
+.action-title {
+    margin-top: 8px;
+    margin-left: 5px;
+    font-family: defaultBoldFont !important;
+    font-size: $f5;
+    line-height: $lh3;
+}
+
+
+.actionForm {
+    width: 100%;
+    margin-left: auto;
+}
+
+.search-bar {
+    width: 70%;
+}
+
+#custom-search-input {
+    padding: 5px 5px 0px 10px;
+    border-radius: 8px;
+    background-color: $whiteColor;
+    box-shadow: 0 0 0 1.5px lightgrey;
+}
+
+
+.filter-grp-class img {
+    height: 38px;
+    cursor: pointer;
+}
+
+.action-btn-class {
+    font-family: defaultBoldFont !important;
+    text-align: end;
+}
+
+.action-card hr {
+    margin: 12px 0px !important;
+}
+
+
+.dropdown-item:active {
+    background-color: $primaryColor;
+}
+
+.dropdown-item:hover {
+    background-color: $drodownItemActiveGray;
+}
+.form-check-label{
+    color: $black_87;
+    font-size: $f7;
+    line-height:$lh4;
+}
+
+.list-avatar {
+    width: $listImage;
+    height: $listImage;
+    display: inline-block;
+    object-fit: cover;
+    object-position: top;
+    // background-image: url(src/assets/images/list_user_placeholder.png);
+}
+
+.col-cell-1 {
+    width: 12%;
+}
+
+.col-cell-2 {
+    width: 9%;
+}
+
+.col-cell-3 {
+    width: 10%;
+}
+
+.col-cell-4 {
+    width: 20%;
+}
+
+.col-cell-5 {
+    width: 7%;
+}
+
+.col-cell-6 {
+    width: 7%;
+}
+
+.col-cell-7 {
+    width: 10%;
+}
+
+.col-pl-5 {
+    padding: $col-pl-5;
+}
+
+.col-pl-6 {
+    padding: $col-pl-6;
+}
+
+.col-pl-7 {
+    padding: $col-pl-7;
+}
+
+.col-pl-8 {
+    padding: $col-pl-8;
+}
+
+.col-cell-8 {
+    width: 5%;
+}
+
+.col-cell-head-p {
+    padding: $col-cell-head-p;
+}
+
+// .col-cell-data-p{
+//     padding: $col-cell-data-p;
+// }
+
+.dropdown-menu {
+    min-width: 7rem !important;
+}
+
+.table-card-body {
+    padding: 0px 15px;
+}
+
+.trash-icon-color{
+   color: #dc3545;
+}
+
+
+.pencil-icon-color{
+    color: #007bff;
+ }
