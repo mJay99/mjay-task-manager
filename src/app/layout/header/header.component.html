@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-md navbar-light company-navbar shadow p-3 mb-5 bg-white rounded">
+  
+<div class="pt-2 pb-2 pl-4">
+  <i class="cursor-pointer fa fa-2x fa-bars"></i>
+</div> 
+
+    <button type="button" class="navbar-toggler bg-light mt-2" data-toggle="collapse" data-target="#nav">
+  
+      <span class="navbar-toggler-icon"></span>
+  
+    </button>
+  
+    <div class="collapse navbar-collapse CompanyNavbarCollapse justify-content-end header-nav-list-Menu mt-2" id="nav">
+      <a class="nav-link font-weight-bold px-3" (click)="navigateTo('dashboard/boards')">Boards</a>
+      <a class="nav-link font-weight-bold px-3" (click)="navigateTo('dashboard/tasks')"> Tasks</a>
+      <a class="nav-link font-weight-bold px-3" (click)="navigateTo('dashboard/users')">Users</a>
+        <!-- [ngClass]="{'activeClass': setActiveClass('')}" -->
+      <div class="cursor-pointer user_profile_dropdown mt-2 mb-2">
+          <i class="fa fa-2x fa-user-circle  mr-4" title="User profile" data-toggle="dropdown" aria-haspopup="true" aria-hidden="true"></i>
+        <!-- Default dropleft button -->
+        <div class="dropdown-menu user_profile truncate-overflow-text mr-2 pr-2" aria-labelledby="triggerId"
+          id="user_profile">
+          <div class="d-flex flex-column">
+            <span title="UserName" class="profile-user-name text-wrap">Sample user</span>
+          </div>
+          <hr>
+          <span class="dropdown-item" title="Profile">Profile</span>
+          <span class="dropdown-item" title="Settings">Settings</span>
+          <span class="dropdown-item" title="Sign out" >Sign out</span>
+        </div>
+      </div>
+    </div>
+  
+  </nav>

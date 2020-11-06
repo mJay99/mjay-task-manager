@@ -11,7 +11,7 @@ export class BoardsComponent implements OnInit {
 
   ngOnInit() {
   }
-  navigateTo(){
+  navigateTo(param?){
     
   }
 
