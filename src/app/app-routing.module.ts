@@ -6,7 +6,7 @@ import { ListTasksComponent } from './task-manager/list-tasks/list-tasks.compone
 
 
 const routes: Routes = [
-  // { path: '', component: ListTasksComponent },
+  { path: '', component: DashboardComponent },
   // { path: 'login', component: DefaultLoginComponent },
 
   {
