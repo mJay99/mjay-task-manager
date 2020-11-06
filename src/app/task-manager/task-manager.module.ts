@@ -5,15 +5,23 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BoardsComponent } from './boards/boards.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { PiorityPipe } from '../core/pipes/task-priority.pipe';
+import { SearchByAllPipe } from '../core/pipes/search-by-all.pipe';
 
 
 
 @NgModule({
-  declarations: [CreateUpdateTaskComponent, ListUsersComponent, ListTasksComponent],
+  declarations: [CreateUpdateTaskComponent, ListUsersComponent, ListTasksComponent, BoardsComponent ,
+    PiorityPipe,SearchByAllPipe],
   imports: [
     CommonModule,
     FormsModule,
-    // NgbModule,
+    FormsModule,
+    NgbModule,
+    NgSelectModule,
     RouterModule,
   ]
 })
