@@ -1,0 +1,48 @@
+@import "_variables";
+
+.reports-query-form{
+    min-width: 10vw;
+    max-width: 15vw;
+  }
+
+  .input-group{
+    outline: none !important;
+}
+.input-field{
+    outline: none !important;
+    width: 50%;
+}
+.input-group img {
+    outline: none;
+    position: absolute !important;
+    // margin: 9px 0px 0px 90%;
+}
+
+
+// .form-control {
+//     border-radius: 0px;
+//     font-family: defaultRegularFont !important;
+//     font-size: $f7;
+// }
+
+.select_dropdown {
+    width: 32%;
+    font-size: $f7 !important;
+    color: $black_87 !important;
+    font-family: defaultRegularFont !important;
+    background-color: $drodownItemActiveGray !important;
+    border-radius: 2px;
+}
+
+.dropdown-item:hover {
+    background-color: #007bff !important;
+}
+
+.bootstrap-select>select>button:after{
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius:none;
+    background: #fff !important;
+
+}

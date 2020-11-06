@@ -1,1 +1,47 @@
-<p>create-update-task works!</p>
+<form #taskForm="ngForm">
+  <div class="row d-flex justify-content-start">
+    <div class="col-4">
+      <input type="text" class="form-control" name="task_name" [(ngModel)]="task.message" #task_name="ngModel"
+        placeholder="Enter task ">
+    </div>
+    <div class="col-2 reports-query-form">
+      <div class="d-flex align-items-center justify-content-end input-group  ml-1">
+        <input class="form-control shadow-sm bg-white input-field input-disable" tabindex="-1" placeholder="Due Date"
+          name="task_due_date" [(ngModel)]="task.due_date" ngbDatepicker #task_due_date="ngbDatepicker">
+        <img src="assets/images/date_picker.png" class="select-date cursor-pointer pr-1 pl-1" alt=""
+          title="Select Start Date" (click)="task_due_date.toggle()">
+      </div>
+    </div>
+    <div class="col-2">
+      <select class="form-control" name="task_priority" [(ngModel)]="task.priority" #task_priority="ngModel"
+        placeholder="Prioirity">
+        <option value="">Select Priority</option>
+        <option [value]="1">High</option>
+        <option [value]="2">Medium</option>
+        <option [value]="3">Low</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <ng-select [items]="users" [(ngModel)]="task.assigned_to" name="assignee" #assignee="ngModel"
+        [virtualScroll]="true" [loading]="loading" bindLabel="name" bindValue="id" placeholder="Assignee"
+        appendTo="body" (scroll)="onScroll($event)" (scrollToEnd)="onScrollToEnd()">
+        <ng-template ng-header-tmp>
+          <small class="form-text text-muted">Loaded {{users.length}} of {{users.length}}</small>
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          <b>{{index}}</b> {{item.name}}
+        </ng-template>
+      </ng-select>
+    </div>
+    <div class="col-1 d-flex justify-content-end align-items-center">
+      <div class="action-btn-class">
+        <button type="button" *ngIf="!isEdit" (click)="saveTask()" class="btn btn-outline-success">Save</button>
+        <button type="button" *ngIf="isEdit" (click)="updateTask()" class="btn btn-outline-success">Update</button>
+      </div>
+    </div>
+    <div class="col-1 d-flex justify-content-end align-items-center">
+      <div class="action-btn-class">
+        <button type="button" (click)="cancel()" class="btn btn-outline-secondary">Cancel</button>
+      </div>
+    </div>
+</form>
