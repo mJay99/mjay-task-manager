@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 // @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
+@import "~@ng-select/ng-select/themes/default.theme.css";
 @import "_variables";
 
 //Font faces 
@@ -142,7 +142,7 @@ body {
     font-family: defaultMediumFont !important;
     font-size: $f7;
     line-height: $lh5;
-    color: $black_38;
+    color: $black_87;
 }
 
 .col-data-row {
@@ -153,8 +153,8 @@ body {
 }
 
 .truncate-overflow-text {
-    padding-right: 1.5%;
-    margin-right: 0.5%;
+    // padding-right: 1.5%;
+    // margin-right: 0.5%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -215,7 +215,8 @@ input:-webkit-autofill:active {
 
 .form-control {
     border-radius: 0px !important;
-    font-size: $f7;
+    font-size: $f7 !important;
+    outline: none !important;
     height: calc(1.5em + .75rem + 7px) !important;
 }
 
@@ -370,7 +371,17 @@ input:-webkit-autofill:active {
     outline: none !important;
     color: $black_5;
 }
+.ng-select .ng-select-container {
+    border-radius: 0px !important;
+        font-size: $f7;
+        height: calc(1.5em + .75rem + 7px) !important;
+}
 
+.ng-select.ng-select-opened>.ng-select-container {
+    border-radius: 0px !important;
+        font-size: $f7;
+        height: calc(1.5em + .75rem + 7px) !important;
+}
 
 @media (min-width: 968px) {
 
@@ -427,7 +438,25 @@ input:-webkit-autofill:active {
 
     .form-control::placeholder {
         font-size: $f7;
+        color: $black_38 !important;
+
     }
+    ::-webkit-input-placeholder {
+        color: $black_38 !important;
+       font-size: $f7;
+      }
+      ::-moz-placeholder {
+        color: $black_38 !important;
+       font-size: $f7;
+      }
+      :-ms-input-placeholder {
+        color: $black_38 !important;
+       font-size: $f7;
+      }
+      ::placeholder {
+        color: $black_38 !important;
+       font-size: $f7;
+      }
 
     .btn {
         letter-spacing: -0.056em;
